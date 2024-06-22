@@ -1,0 +1,69 @@
+/* CheckInCheckOutForm.css */
+
+/* Body styles */
+body {
+    margin: 0;
+    padding: 50;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Form container styles */
+  .form-container {
+   
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: right;
+  }
+  
+  /* Form content styles */
+  .form-content {
+    width: 100%;
+    max-width: 500px;
+    padding: 50px;
+    background-color: rgba(238, 205, 140, 0.8); /* Use rgba to add transparency */
+    border-radius: 10px;
+    
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-left: 16px;
+  }
+  
+  /* Input field styles */
+  .input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #f0f0e6;
+    border-radius: 8px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    transition: border-color 0.3s;
+  }
+  
+  .input:focus {
+    border-color: #f6763b;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+  }
+  
+  /* Submit button styles */
+  .submit-button {
+    width: 100%;
+    padding: 10px; /* Adjusted padding for smaller button */
+    background-color: #3b82f6; /* Blue color */
+    color: #ffffff; /* Text color set to white */
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s; /* Added color transition */
+  }
+  
+  .submit-button:focus {
+    outline: 2px solid blue;
+    box-shadow: 0 0 0 3px rgba(47, 68, 101, 0.5);
+  }
+  
+  .submit-button:hover {
+    background-color: #57b350; /* Green color */
+  }
+  
