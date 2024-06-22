@@ -1,0 +1,27 @@
+.students-container {
+    max-width: 600px;
+    margin: 0 auto;
+    color:rgb(34, 31, 31);
+    text-align:center;
+    color:rgb(145, 47, 47);
+    font-weight:bold;
+  }
+
+.students-list {
+    list-style-type: none;
+    padding: 0;
+    color:rgb(34, 31, 31);
+    text-align:center;
+    color:rgb(145, 47, 47);
+  }
+  
+  .student-item {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .student-item:hover {
+    background-color: #e0e0e0;
+  }
