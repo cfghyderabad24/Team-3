@@ -30,8 +30,8 @@ const StudentSchema = new Schema({
     type: String,
     required: true
   },
-  genre: {
-    type: String,
+  grade: {
+    type: numeric,
     required: true
   },
   transaction_history: {

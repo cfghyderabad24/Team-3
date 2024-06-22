@@ -3,12 +3,12 @@ const {Schema} = mongoose;
 
 const BookSchema = new Schema({
     bookid:{
-        type:numeric,
-        required:tru,
+        type:Number,
+        required:true,
         unique:true
     },
     copyid:{
-        type:numeric,
+        type:Number,
         required:true
     },
     title:{
@@ -16,12 +16,13 @@ const BookSchema = new Schema({
         required:true
     },
     level:{
-        type:String,
+        type:Number,
         required:true
 
     }, 
     available:{
-        type: numeric
+        type:Boolean,
+        required:true
     },
     author:{
         type:String,
@@ -34,4 +35,4 @@ const BookSchema = new Schema({
 })
 
 const Book = mongoose.model('Book', BookSchema);
-module.exports=Book 
+export default Book
