@@ -21,7 +21,8 @@ const transactionSchema = new mongoose.Schema({
         default: Date.now
     },
     checkOutDate: {
-        type: Date
+        type: Date,
+        default: null
     },
 }, { timestamps: true });
 
