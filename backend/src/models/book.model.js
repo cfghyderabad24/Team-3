@@ -1,16 +1,16 @@
 import mongoose from 'mongoose';
 
 const bookSchema = new mongoose.Schema({
-    bookId: {
+    bookid: {
         type: String,
         required: true,
         unique: true
     },
-    copyId: {
+    copyid: {
         type: String,
         required: true
     },
-    uniqueId: {
+    uniqueid: {
         type: String,
         required: true,
         unique: true
@@ -40,7 +40,7 @@ const bookSchema = new mongoose.Schema({
     },
 });
 
-bookSchema.index({ bookId: 1, copyId: 1 }, { unique: true });
+// bookSchema.index({ bookId: 1, copyId: 1 }, { unique: true });
 
 const Book = mongoose.model('Book', bookSchema);
 

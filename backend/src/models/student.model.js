@@ -16,16 +16,6 @@ const StudentSchema = new Schema({
         type: Number,
         required: true
     },
-    transaction_history: {
-        type: [TransactionSchema],
-        required: true,
-        default: []
-    },
-    current_transaction: {
-        type: [TransactionSchema],
-        required: true,
-        default: []
-    }
 });
 
 const Student = mongoose.model('Student', StudentSchema);
