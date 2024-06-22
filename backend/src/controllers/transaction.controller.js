@@ -10,7 +10,6 @@ export const createTransaction = async (req, res) => {
 
     const { bookId, studentId, checkOutDate } = req.body;
 
-
     try {
         const newTransaction = new Transaction({
             bookId,
@@ -27,6 +26,40 @@ export const createTransaction = async (req, res) => {
     }
 };
 
+//to update the checkout date to current date
+export const updateTransaction = async (req, res) => {
+    const { bookId, studentId } = req.body;
+
+    try {
+        // Validate request body
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+
+        // Find transaction by ID
+        let transaction = await Transaction.findById(req.params.id);
+
+        if (!transaction) {
+            return res.status(404).json({ error: 'Transaction not found' });
+        }
+
+        // Update transaction fields
+        transaction.bookId = bookId;
+        transaction.studentId = studentId;
+        transaction.checkOutDate = Date.now();
+
+        // Save updated transaction
+        await transaction.save();
+
+        res.json({ message: 'Transaction updated successfully' });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Server Error');
+    }
+};
+
+
 // Get all transactions
 export const getAllTransactions = async (req, res) => {
     try {
@@ -41,29 +74,26 @@ export const getAllTransactions = async (req, res) => {
     }
 };
 
-// Update a transaction by transactionId
-export const updateTransaction = async (req, res) => {
-    const { bookId, studentId, checkOutDate } = req.body;
-
+// Get transactions by studentId
+export const getTransactionsByStudentId = async (req, res) => {
     try {
-        let transaction = await Transaction.findById(req.params.id);
+        const transactions = await Transaction.find({ studentId: req.params.studentId })
+            .populate('bookId', 'title')
+            .populate('studentId', 'name');
 
-        if (!transaction) {
-            return res.status(404).json({ error: 'Transaction not found' });
+        if (!transactions.length) {
+            return res.status(404).json({ error: 'No transactions found for this student' });
         }
 
-        transaction.bookId = bookId;
-        transaction.studentId = studentId;
-        transaction.checkOutDate = checkOutDate;
-
-        await transaction.save();
-
-        res.json({ message: 'Transaction updated successfully' });
+        res.json(transactions);
     } catch (error) {
         console.error(error.message);
         res.status(500).send('Server Error');
     }
 };
+
+
+
 
 // Delete a transaction by transactionId
 export const deleteTransaction = async (req, res) => {
