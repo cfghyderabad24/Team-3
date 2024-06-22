@@ -3,15 +3,14 @@ import { Label, TextInput, Button, Select } from 'flowbite-react';
 import './CheckInCheckOutForm.css';
 import background from '../assets/background.jpg'
 
-const CheckInCheckOutForm = () => {
+const CheckInForm = () => {
   const [formData, setFormData] = useState({
     studentId: '',
     studentName: '',
     bookId: '',
     bookName: '',
-    action: 'check-out',
-    date: '',
-    time: '',
+   
+    
   });
 
   const handleChange = (e) => {
@@ -46,7 +45,7 @@ const CheckInCheckOutForm = () => {
    
     <form onSubmit={handleSubmit} className="p-6 bg-white rounded-lg shadow-lg max-w-lg mx-auto">
     <h1 style={{ textAlign: 'center', color: 'black', marginBottom: '20px' }}>
-          Check In - Check Out Form
+          Check In Form
         </h1>
       <div className="mb-4">
       
@@ -102,51 +101,13 @@ const CheckInCheckOutForm = () => {
           className="input"
         />
       </div>
-      <div className="mb-4">
-        <Label htmlFor="action">Action</Label>
-        <Select
-          id="action"
-          name="action"
-          value={formData.action}
-          onChange={handleChange}
-          className="input"
-        >
-          <option value="check-out">Check-Out</option>
-          <option value="check-in">Check-In</option>
-        </Select>
-      </div>
-      <div className="mb-4">
-        <Label htmlFor="date">Date</Label>
-        <TextInput
-          id="date"
-          name="date"
-          type="date"
-          value={formData.date}
-          onChange={handleChange}
-          required
-          className="input"
-        />
-      </div>
-      <div className="mb-4">
-        <Label htmlFor="time">Time</Label>
-        <TextInput
-          id="time"
-          name="time"
-          type="time"
-          value={formData.time}
-          onChange={handleChange}
-          required
-          className="input"
-        />
-      </div>
-      <Button type="submit" className="submit-button" >
-        {formData.action === 'check-out' ? 'Check-Out Book' : 'Check-In Book'}
-        
-      </Button>
+      <Button type="submit" className="submit-button">
+          Check-IN Book
+        </Button>
     </form>
     </div>
     
   );
 };
 
-export default CheckInCheckOutForm;
+export default CheckInForm;
