@@ -13,6 +13,7 @@ import {
 function BookLevelBarGraph(props) {
   return (
     <div>
+    works
       <BarChart
         width={500}
         height={200}
