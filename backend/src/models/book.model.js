@@ -5,11 +5,18 @@ const BookSchema = new Schema({
     bookid:{
         type:Number,
         required:true,
-        unique:true
+        
     },
     copyid:{
         type:Number,
         required:true
+    },
+    uniqueid:{
+        type:String,
+        unique:true,
+        required:true
+
+
     },
     title:{
         type:String,

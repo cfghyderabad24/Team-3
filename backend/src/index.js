@@ -3,6 +3,7 @@ import { app } from './app.js'
 import connectDB from './db/mongoConnection.js'
 import express from 'express'
 import authRoutes from './routes/auth.js';
+import bookRoutes from './routes/bookroute.js'
 
 dotenv.config({
     path: './.env'
@@ -12,6 +13,7 @@ dotenv.config({
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
+app.use('/api/auth', bookRoutes);
 
 
 connectDB()
