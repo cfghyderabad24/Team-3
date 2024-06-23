@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Label, TextInput, Button, Select } from 'flowbite-react';
 import './CheckInCheckOutForm.css';
 import background from '../assets/background.jpg'
-
+import { Alert } from "flowbite-react";
 const CheckInForm = () => {
   const [formData, setFormData] = useState({
     studentId: '',
@@ -13,6 +13,16 @@ const CheckInForm = () => {
     
   });
 
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    // Handle form submission logic here
+    return (
+      <Alert color="success" onDismiss={() => alert('Alert dismissed!')}>
+        <span className="font-medium">Info alert!</span> Change a few things up and try submitting again.
+      </Alert>
+    );
+  }
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -20,11 +30,6 @@ const CheckInForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
-  };
 
   return (
     <div style={{ position: 'relative', minHeight: '100vh' }}>
@@ -62,7 +67,7 @@ const CheckInForm = () => {
           className="input"
         />
       </div>
-      <div className="mb-4">
+      {/*<div className="mb-4">
         <Label htmlFor="studentName">Student Name</Label>
         <TextInput
           id="studentName"
@@ -73,8 +78,8 @@ const CheckInForm = () => {
           onChange={handleChange}
           required
           className="input"
-        />
-      </div>
+      />
+      </div>*/}
       <div className="mb-4">
         <Label htmlFor="bookId">Book ID</Label>
         <TextInput
@@ -88,7 +93,7 @@ const CheckInForm = () => {
           className="input"
         />
       </div>
-      <div className="mb-4">
+      {/*<div className="mb-4">
         <Label htmlFor="bookName">Book Name</Label>
         <TextInput
           id="bookName"
@@ -99,9 +104,9 @@ const CheckInForm = () => {
           onChange={handleChange}
           required
           className="input"
-        />
-      </div>
-      <Button type="submit" className="submit-button">
+    />
+      </div>*/}
+      <Button type="submit" className="submit-button" onClick={()=>{handleSubmit}}>
           Check-IN Book
         </Button>
     </form>
