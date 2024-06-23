@@ -5,6 +5,8 @@ import Dashboard from "./pages/Dashboard";
 import StudentsList from "./components/StudentsList";
 import BookInventory from "./pages/BookInventory";
 import StudentDashboard from "./pages/StudentDashboard";
+import CheckInForm from "./pages/CheckInForm";
+import CheckOut from "./pages/checkOut";
 
 function App() {
   return(
@@ -15,6 +17,8 @@ function App() {
         <Route path='/book-inventory' element={<BookInventory />} />
         <Route path='/all-students' element={<StudentsList />} />
         <Route path='/student/:studentid' element={<StudentDashboard />} />
+        <Route path='/checkin' element={<CheckInForm/>} />
+        <Route path='/checkout' element={<CheckOut/>}/>
       </Routes>
     </BrowserRouter>
   )
