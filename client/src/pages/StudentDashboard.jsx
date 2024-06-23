@@ -13,7 +13,7 @@ export default function StudentDashboard() {
   const [currIssued, setCurrIssued] = useState([]);
   const [allBooks, setAllBooks] = useState([]);
   const [level, setLevel] = useState([]);
-  const [count, setCount] = useState(0);
+  const [counts, setCounts] = useState(0);
   const [avg, setAvg] = useState(0);
 
   let url = window.location.href;
@@ -67,8 +67,8 @@ export default function StudentDashboard() {
           level.forEach((level_) => {
             count[level_].count++;
           });
-          setCount(count);
-          console.log("count is", count);
+          setCounts(count);
+          console.log("counts is", counts);
           count.shift();
 
           ///
@@ -130,7 +130,7 @@ export default function StudentDashboard() {
       </div>
       <div className="flex flex-col items-center mb-4">
       <h3 className="text-xl font-semibold mb-2">Number of Books for each Level read by the student</h3>
-        <BookLevelBarGraph data={count} />
+        <BookLevelBarGraph data={counts} />
       </div>
 
       <div className="flex flex-col items-center mb-[-100px]">
