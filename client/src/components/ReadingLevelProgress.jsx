@@ -14,11 +14,14 @@ const formatDate = (date) => {
   return format(parseISO(date), "MMM dd"); // Formats date as 'Jun 01, 2023'
 };
 
-
+const sampleData = [
+  { date: "2023-06-01", level: 2 },
+  { date: "2023-06-17", level: 3 },
+];
 
 export default function ReadingLevelProgress({data}) {
   return (
-    <LineChart width={500} height={300} data={data} margin={{
+    <LineChart width={500} height={300} data={sampleData} margin={{
       top: 5,
       right: 30,
       left: 20,
